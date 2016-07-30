@@ -1,0 +1,48 @@
+
+
+filename = '20091127DR_0004_noindex.dat'
+% Function for converting the data file provided by the EEG experimenters
+% (it is a text file) into an ascii file (mat) for working on it with
+% matlab
+
+
+% sample frequency of the data
+
+sample_freq = 4; % in ms
+pre_samples = 30; %40 % samples before the spike marker
+post_samples = 55; %88 % samples after spike marker
+detect_window = 12; % samples of detection window for the maximum
+fmin = 4; % low pass cut frequency
+fmax = 50; % high pass cut frequency
+sr = 4/1000; % sampling rate in s
+
+% filetext = fileread(filename);
+eeg_data_matrix = importdata(filename);
+
+for i = 1:size(eeg_data_matrix,2)
+
+    channel_to_filt = eeg_data_matrix(:,i);
+
+    [b,a]=ellip(2,0.1,40,[fmin fmax]*2*sr);
+    filt_eeg_data_matrix(:,i)=filtfilt(b,a,channel_to_filt);
+    
+end;
+
+
+eeg_index_vector = ['Fp1 '; 'Fp2 '; 'F3  '; 'F4  '; ...
+    'C3  ';'C4  ';'P3  ';'P4  '; ...
+    'O1  '; 'O2  ';'F7  ';'F8  '; ...
+    'T7  ';'T8  '; 'P7  '; 'P8  '; ...
+    'Fz  ';'Cz  '; 'Pz  ';'Oz  '; ...
+    'FC1 '; 'FC2 ';'CP1 ';'CP2 '; 'FC5 ';'FC6 '; ...
+    'CP5 '; 'CP6 ';'TP9 ';'TP10'; 'EOG ';'ECG '; ...
+    'AF3 '; 'AF4 ';'FC3 ';'FC4 '; 'CP3 ';'CP4 '; ...
+    'PO3 '; 'PO4 ';'F5  ';'F6  '; 'C5  ';'C6  '; ...
+    'P5  '; 'P6  ';'AF7 ';'AF8 '; 'FT7 ';'FT8 '; ...
+    'TP7 '; 'TP8 ';'PO7 ';'PO8 '; 'FT9 ';'FT10'; ...
+    'P9  '; 'P10 ';'PO9 ';'PO10'; 'O9  ';'O10 '; ...
+    '63  '; 'CPz '];
+
+eeg_index_vector = eeg_index_vector(1:size(eeg_data_matrix,2),:);
+save (['eeg_data_' filename(1:8) '_' filename(14:15)], 'eeg_data_matrix', 'eeg_index_vector');
+save (['filt_eeg_data_' filename(1:8) '_' filename(14:15)], 'filt_eeg_data_matrix', 'eeg_index_vector');
