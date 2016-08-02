@@ -1,18 +1,6 @@
-%% This function aggressively filters the original EEG to eliminate the slow wave - this should help with the spike realignment %%
-
 function filt_EEG = f_filteeg_prerealignment(EEG)
 
-% switch patient_name
-
-% patient_name = 'JR';
-
-% set_path = (['/Users/nsharma/Desktop/pipeline/' patient_name '/']);
-
-% cd([set_path]);
-
-% set_filename = ([patient_name '_unfiltered_eeg.set']);
-
-% orEEG = pop_loadset([set_filename]); %obtained by loading the dataset onto the GUI of eeglab then typing in the command 'EEG.history'
+%% This function aggressively filters the original EEG to eliminate the slow wave %%
 
 filtEEG = EEG;
 
@@ -72,17 +60,9 @@ filtEEG.data = FiltFiltM(B,A,EEG_for_filt,2);
 
 filtEEG.fdata = filtEEG.data;
 
-% filtEEG.fdata = filtered_eeg; %transfering the new filtered EEG to the new filtEEG structure - structure with 
-                              % filtered eeg is called fdata (located at
-                              % the bottom of the structure
 
 filtEEG = eeg_checkset (filtEEG);
 
-% cd ([target_dir]); % changing to the directory I want to save the filtered_EEG
-
-% save ('JR_filtEEG_5.mat','filtEEG'); % saving only the filtered_eeg variable
-
-% pop_writebva(filtEEG, [patient_name '_filtereddata' data_filter 'Hz']); % Saving the new eeg data 
 
 filt_EEG = filtEEG;
 

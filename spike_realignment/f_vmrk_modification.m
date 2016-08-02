@@ -1,17 +1,7 @@
-%This script removes the original sample value for spiketype B with the
-%realigned sample value of spiketype B and stores it in a .vmrk file
-
 function vmrk_file_modification = f_vmrk_modification(EEG, spikelabel)
 
-% patient_name = 'JR';
+%% Altering .vmrk file to remove 'Stimulus' type and replace it with original type %% 
 
-% dir = (['/Users/nsharma/Desktop/pipeline/' patient_name '/']);
-
-% realigned_file_dir = (['/Users/nsharma/Desktop/PhD/data_processed/' patient_name '/all/saved_eeglab_export/eeg_export/']);
-
-% original_file_dir = (['/Users/nsharma/Desktop/PhD/data_processed/' patient_name '/unfiltered_eeg/']);
-
-% cd([dir]);
 
 %% extracting original filename %%
 
@@ -26,17 +16,11 @@ vmrk = '.vmrk';
 filename_or = strcat(o_alt, vmrk); % replacing it with .vmrk
 
 
-% define filename original
-% filename_or = ([patient_name '_unfiltered.vmrk']);
-
-
-
 spiketype = spikelabel;
 
 % define filename reordered
 filename_new = ('realigned_GFP_filteredEEG_12ms.vmrk');
 
-% cd([original_file_dir]);
 
 % Read in original file into cell
 % Will generate one cell for each line

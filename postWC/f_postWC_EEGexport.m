@@ -2,7 +2,6 @@ function vmrk_postWC_filemod = f_postWC_vmrkalt(EEG, classes)
 
 %% transfers WC classes to realigned EEG to create a new WC classified .vmrk, .vhdr and .dat file %%
 
-% cd (['/Users/nsharma/Desktop/pipeline/gui_test2/']);
 
 WC_EEG = EEG;
 

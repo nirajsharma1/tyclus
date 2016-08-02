@@ -1,5 +1,6 @@
 function WC_clustering = f_WC_clustering (EEG)
 
+%% The list of functions to execute prior to processing spike events through Wave Clus %%
 
 f_eeg_data_to_ascii_WC_stp1(EEG);
 

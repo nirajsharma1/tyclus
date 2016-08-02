@@ -1,25 +1,17 @@
 
 function extract_spike = f_extract_spikes_WC_stp2(EEG)
 
-% patient_name = 'JR';
-
-% data_dir = (['/Users/nsharma/Desktop/pipeline/' patient_name '/']);
-
-% cd([data_dir]);
+% function extracting spikes %
 
 data_filename = ('filt_eeg_data');
 
 load ('spiketype.mat', 'spiketype');
 
-% markers_dir = (['/Users/nsharma/Desktop/PhD/validation/' patient_name '/data_forCP/']);
 
-% cd([markers_dir]);
 
 markers_filename = (['realigned_GFP_filteredEEG_12ms']);
 
-% directory_save_pathway = (['/Users/nsharma/Desktop/PhD/data_processed/' patient_name '/all/data/']);
 
-% cd([directory_save_pathway]);
 
 sample_freq = 4; % in ms
 pre_samples = 25; %40 % samples before the spike marker
@@ -43,7 +35,7 @@ detect_window_gr = repmat(detect_window,7,1);
 % front_chans = [1 2 3 17 4 47 33 34 48];
 %both_chans = [13 15 27 29 51 12 14 26 28 50];
 % both_chans = [11 25 13 27 15 12 26 14];
-all_chans = f_channel_number(EEG);
+all_chans = f_channel_number(EEG); % total number of channels
 % group_chan_index = ['L'; 'R'];%; 'F'];
 % group_chans = [left_chans; right_chans]; %; front_chans];
 % group_chans = [4 5 13 20 21 22 23 29 68 69];

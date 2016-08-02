@@ -3,13 +3,6 @@ function coi = f_coi_test(chann_label, EEG)
 
 %% Identifying the channels of interest %%
 
-% patient_name = 'JR';
-
-% set_path = (['/Users/nsharma/Desktop/pipeline/' patient_name '/']);
-
-% cd([set_path]);
-
-% EEG = pop_loadset('JR_unclassified.set');
 
 coi_EEG = EEG;
 

@@ -1,17 +1,12 @@
 
 function sel_ch_polytrode = f_select_ch_polytrode_WC_stp3(EEG)
 
-% patient_name = 'JR';
-
-% directory_save_pathway = (['/Users/nsharma/Desktop/pipeline/' patient_name '/']);
-
-% cd([directory_save_pathway]);
+% Selecting polytrode %
 
 filename = (['filt_eeg_spikes']);
 
 load ('coi.mat', 'coi');
 
-% directory_save_pathway = '/Users/nsharma/Desktop/PhD/EEGLAB/JR/GFP_realignment/all/data/';
 
 
 left_chans = [11 41 3 49 25 35 13 43 5 29 51 27 37 15 45 7];

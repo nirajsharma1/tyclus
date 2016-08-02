@@ -1,21 +1,11 @@
 
 function clustering = f_do_clustering_pol_eeg_WC_stp5(EEG)
 
-% patient_name = 'JR';
-
-% directory_save_pathway = (['/Users/nsharma/Desktop/PhD/data_processed/' patient_name '/all/data_v2/']);
-
-% cd([directory_save_pathway]);
+% Clustering data using a superparamagnetic algorithm - requires Wave_clus
+% to be added to the path %
 
 file_to_cluster = (['polytrode_sel_ch_spk_filt']);
 
-% directory_save_pathway = '/Users/nsharma/Desktop/PhD/EEGLAB/JR/GFP_realignment/all/data/';
-
-% cd ([directory_save_pathway]);
-
-% wave_clus_dir = (['/Users/nsharma/Desktop/PhD/data_processed/Wave_clus/']);
-
-% cd([wave_clus_dir]);
 
 print2file = 1;                             %for saving printouts.
 

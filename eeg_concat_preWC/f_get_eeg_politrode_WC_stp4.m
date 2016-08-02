@@ -1,19 +1,12 @@
 
 function eeg_polytrode = f_get_eeg_politrode_WC_stp4(EEG)
 
-% patient_name = 'JR';
-
-% directory_save_pathway = (['/Users/nsharma/Desktop/PhD/data_processed/' patient_name '/all/data/']);
-
-% cd([directory_save_pathway]);
-
-filename = (['sel_ch_spk_filt']);
-
-% directory_save_pathway = '/Users/nsharma/Desktop/PhD/EEGLAB/JR/GFP_realignment/all/data/';
-
 % function for creating a "politrode" with the eeg signals
 % we should keep track of the origin of the spikes in case we should
 % divide them by areas
+
+filename = (['sel_ch_spk_filt']);
+
 
 load (filename)
 
